@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shorthand CSS Converter</title>
+	<meta name="theme-color" content="#037ed3">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+
+	<!-- Icons -->
+	<link rel="icon" href="/img/favicon.ico">
+
+	<!-- Styles -->
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<!-- <div class="sidenav">
+		<div id="sidenav-header">
+			<div id="sidenav-details">
+				<span id="sidenav-name"></span>
+				<span id="sidenav-version"></span>
+			</div>
+			<i class="material-icons">&#xE5C5;</i>
+		</div>
+		<div class="sidenav-item">
+			<a href="/">
+				<i class="material-icons">&#xE88A;</i>Home
+			</a>
+		</div>
+		<div class="sidenav-item">
+			<a href="/shots">
+				<i class="material-icons">&#xE3B6;</i>Shots
+			</a>
+			<i class="material-icons">&#xE5CF;</i>
+		</div>
+	</div> -->
+
+	<div class="appbar">
+		<!-- <span class="hamburger"><i class=\"material-icons\">&#xE5D2;</i></span> -->
+		<span class="appname">Shorthand CSS</span>
+		<span class="tabs">
+			<span class="tab active">Input</span>
+			<span class="tab">Text</span>
+			<span class="tab">File</span>
+		</span>
+	</div>
+
+	<div class="waterfall falling"></div>
+	
+	<div class="main">
+		<!-- Input -->
+		<div class="subheader white" id="tester">Tester</div>
+		<div class="tester-container">
+			<div class="tester-margin">
+				<div class="tester">
+					<span>The quick brown fox jumps over the lazy dog.<br />New line!</span>
+					<ul>
+						<li>List Item One</li>
+						<li>List Item Two</li>
+						<li>List Item Three</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="subheader">Background</div>
+		<div class="card" id="background">
+			<div class="longhand">
+				<input type="text" placeholder="Image">
+				<input type="text" placeholder="Position">
+				<input type="text" placeholder="Size">
+				<input type="text" placeholder="Repeat">
+				<input type="text" placeholder="Origin">
+				<input type="text" placeholder="Clip">
+				<input type="text" placeholder="Attachment">
+				<input type="text" placeholder="Color">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border</div>
+		<div class="card" id="border">
+			<div class="longhand">
+				<input type="text" placeholder="Width">
+				<input type="text" placeholder="Style">
+				<input type="text" placeholder="Color">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Radius</div>
+		<div class="card" id="border-radius">
+			<div class="longhand">
+				<input type="text" placeholder="Top Left">
+				<input type="text" placeholder="Top Right">
+				<input type="text" placeholder="Bottom Left">
+				<input type="text" placeholder="Bottom Right">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Top</div>
+		<div class="card" id="border-top">
+			<div class="longhand">
+				<input type="text" placeholder="Width">
+				<input type="text" placeholder="Style">
+				<input type="text" placeholder="Color">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Right</div>
+		<div class="card" id="border-right">
+			<div class="longhand">
+				<input type="text" placeholder="Width">
+				<input type="text" placeholder="Style">
+				<input type="text" placeholder="Color">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Bottom</div>
+		<div class="card" id="border-bottom">
+			<div class="longhand">
+				<input type="text" placeholder="Width">
+				<input type="text" placeholder="Style">
+				<input type="text" placeholder="Color">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Left</div>
+		<div class="card" id="border-left">
+			<div class="longhand">
+				<input type="text" placeholder="Width">
+				<input type="text" placeholder="Style">
+				<input type="text" placeholder="Color">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Width</div>
+		<div class="card" id="border-width">
+			<div class="longhand">
+				<input type="text" placeholder="Top">
+				<input type="text" placeholder="Right">
+				<input type="text" placeholder="Bottom">
+				<input type="text" placeholder="Left">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Style</div>
+		<div class="card" id="border-style">
+			<div class="longhand">
+				<input type="text" placeholder="Top">
+				<input type="text" placeholder="Right">
+				<input type="text" placeholder="Bottom">
+				<input type="text" placeholder="Left">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Border Color</div>
+		<div class="card" id="border-color">
+			<div class="longhand">
+				<input type="text" placeholder="Top">
+				<input type="text" placeholder="Right">
+				<input type="text" placeholder="Bottom">
+				<input type="text" placeholder="Left">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Font</div>
+		<div class="card" id="font">
+			<div class="longhand">
+				<input type="text" placeholder="Style">
+				<input type="text" placeholder="Variant">
+				<input type="text" placeholder="Weight">
+				<input type="text" placeholder="Stretch">
+				<input type="text" placeholder="Size">
+				<input type="text" placeholder="Line Height">
+				<input type="text" placeholder="Family">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">List Style</div>
+		<div class="card" id="list-style">
+			<div class="longhand">
+				<input type="text" placeholder="Type">
+				<input type="text" placeholder="Position">
+				<input type="text" placeholder="Image">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Margin</div>
+		<div class="card" id="margin">
+			<div class="longhand">
+				<input type="text" placeholder="Top">
+				<input type="text" placeholder="Right">
+				<input type="text" placeholder="Bottom">
+				<input type="text" placeholder="Left">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Padding</div>
+		<div class="card" id="padding">
+			<div class="longhand">
+				<input type="text" placeholder="Top">
+				<input type="text" placeholder="Right">
+				<input type="text" placeholder="Bottom">
+				<input type="text" placeholder="Left">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+
+		<div class="subheader">Transition</div>
+		<div class="card" id="transition">
+			<div class="longhand">
+				<input type="text" placeholder="Property">
+				<input type="text" placeholder="Duration">
+				<input type="text" placeholder="Timing Function">
+				<input type="text" placeholder="Delay">
+			</div>
+			
+			<div class="shorthand">
+				<input type="text" placeholder="Shorthand">
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/script.js"></script>
+	<script type="text/javascript">
+	if (document.URL === "http://shorthandcss.com/") {
+		alert("This site is in development. Features probably wont work like you'd expect.")
+	}
+	</script>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-37665721-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
