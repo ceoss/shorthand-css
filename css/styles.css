@@ -190,7 +190,7 @@ input:focus {
 	.waterfall {
 		display: none;
 	}
-	body:not(.scrolling) #tester-subheader {
+	body:not(.scrolling) .subheader:nth-child(1) {
 		color: rgba(0,0,0,.54);
 	}
 	.main {
