@@ -112,7 +112,7 @@ body:not(.scrolling) .waterfall {
 	box-sizing: border-box;
 	transition: color .2s ease;
 }
-body:not(.scrolling) #tester.subheader {
+body:not(.scrolling) #tester-subheader {
 	color: #fff;
 }
 
@@ -127,6 +127,9 @@ input {
 	border: 0;
 	border-bottom: 2px solid #e0e0e0;
 	transition: border .3s ease;
+}
+input.error {
+	border-bottom: 2px solid #f44336;
 }
 input:focus {
 	border-bottom: 2px solid #037ed3;
@@ -149,7 +152,7 @@ input:focus {
 }
 
 /* Tester */
-.tester-margin {
+#tester-margin {
 	background-color: #F9CC9D;
 	overflow: auto;
 	height: 100%;
@@ -158,10 +161,8 @@ input:focus {
 	margin: auto;
 	border-radius: 2px;
 }
-.tester {
-	background-color: #fff;
-	background-image: linear-gradient(to bottom, #A0C5E8 0%, #A0C5E8 100%), linear-gradient(to bottom, #C3DEB7 0%, #C3DEB7 100%);
-	background-clip: content-box, padding-box;
+#tester {
+	background: linear-gradient(to bottom, #A0C5E8 0%, #A0C5E8 100%) content-box, linear-gradient(to bottom, #C3DEB7 0%, #C3DEB7 100%) padding-box;
 	border-radius: 2px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	height: 256px;
@@ -208,11 +209,9 @@ input:focus {
 		top: 0;
 	}
 	.waterfall {
-		/*position: fixed;
-		top: 48px;*/
 		display: none;
 	}
-	body:not(.scrolling) #tester.subheader {
+	body:not(.scrolling) #tester-subheader {
 		color: rgba(0,0,0,.54);
 	}
 	.main {

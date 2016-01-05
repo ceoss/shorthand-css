@@ -51,9 +51,9 @@
 	
 	<!-- Input -->
 	<div class="main" id="input">
-		<div class="subheader" id="tester">Tester</div>
-		<div class="tester-margin">
-			<div class="tester">
+		<div class="subheader" id="tester-subheader">Tester</div>
+		<div id="tester-margin">
+			<div id="tester">
 				<span>The quick brown fox jumps over the lazy dog.<br />New line!</span>
 				<ul>
 					<li>List Item One</li>
@@ -65,214 +65,223 @@
 		<div class="subheader">Background</div>
 		<div class="card" id="background">
 			<div class="longhand">
-				<input type="text" placeholder="Image">
-				<input type="text" placeholder="Position">
-				<input type="text" placeholder="Size">
-				<input type="text" placeholder="Repeat">
-				<input type="text" placeholder="Origin">
-				<input type="text" placeholder="Clip">
-				<input type="text" placeholder="Attachment">
-				<input type="text" placeholder="Color">
+				<input type="text" id="background-image" placeholder="Image">
+				<input type="text" id="background-position" placeholder="Position">
+				<input type="text" id="background-size" placeholder="Size">
+				<input type="text" id="background-repeat" placeholder="Repeat">
+				<input type="text" id="background-origin" placeholder="Origin">
+				<input type="text" id="background-clip" placeholder="Clip">
+				<input type="text" id="background-attachment" placeholder="Attachment">
+				<input type="text" id="background-color" placeholder="Color">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="background-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border</div>
 		<div class="card" id="border">
 			<div class="longhand">
-				<input type="text" placeholder="Width">
-				<input type="text" placeholder="Style">
-				<input type="text" placeholder="Color">
+				<input type="text" id="border-width" placeholder="Width">
+				<input type="text" id="border-style" placeholder="Style">
+				<input type="text" id="border-color" placeholder="Color">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Radius</div>
 		<div class="card" id="border-radius">
 			<div class="longhand">
-				<input type="text" placeholder="Top Left">
-				<input type="text" placeholder="Top Right">
-				<input type="text" placeholder="Bottom Left">
-				<input type="text" placeholder="Bottom Right">
+				<input type="text" id="border-radius-top Left" placeholder="Top Left">
+				<input type="text" id="border-radius-top Right" placeholder="Top Right">
+				<input type="text" id="border-radius-bottom Left" placeholder="Bottom Left">
+				<input type="text" id="border-radius-bottom Right" placeholder="Bottom Right">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-radius-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Top</div>
 		<div class="card" id="border-top">
 			<div class="longhand">
-				<input type="text" placeholder="Width">
-				<input type="text" placeholder="Style">
-				<input type="text" placeholder="Color">
+				<input type="text" id="border-top-width" placeholder="Width">
+				<input type="text" id="border-top-style" placeholder="Style">
+				<input type="text" id="border-top-color" placeholder="Color">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-top-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Right</div>
 		<div class="card" id="border-right">
 			<div class="longhand">
-				<input type="text" placeholder="Width">
-				<input type="text" placeholder="Style">
-				<input type="text" placeholder="Color">
+				<input type="text" id="border-right-width" placeholder="Width">
+				<input type="text" id="border-right-style" placeholder="Style">
+				<input type="text" id="border-right-color" placeholder="Color">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-right-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Bottom</div>
 		<div class="card" id="border-bottom">
 			<div class="longhand">
-				<input type="text" placeholder="Width">
-				<input type="text" placeholder="Style">
-				<input type="text" placeholder="Color">
+				<input type="text" id="border-bottom-width" placeholder="Width">
+				<input type="text" id="border-bottom-style" placeholder="Style">
+				<input type="text" id="border-bottom-color" placeholder="Color">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-bottom-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Left</div>
 		<div class="card" id="border-left">
 			<div class="longhand">
-				<input type="text" placeholder="Width">
-				<input type="text" placeholder="Style">
-				<input type="text" placeholder="Color">
+				<input type="text" id="border-left-width" placeholder="Width">
+				<input type="text" id="border-left-style" placeholder="Style">
+				<input type="text" id="border-left-color" placeholder="Color">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-left-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Width</div>
 		<div class="card" id="border-width">
 			<div class="longhand">
-				<input type="text" placeholder="Top">
-				<input type="text" placeholder="Right">
-				<input type="text" placeholder="Bottom">
-				<input type="text" placeholder="Left">
+				<input type="text" id="border-width-top" placeholder="Top">
+				<input type="text" id="border-width-right" placeholder="Right">
+				<input type="text" id="border-width-bottom" placeholder="Bottom">
+				<input type="text" id="border-width-left" placeholder="Left">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-width-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Style</div>
 		<div class="card" id="border-style">
 			<div class="longhand">
-				<input type="text" placeholder="Top">
-				<input type="text" placeholder="Right">
-				<input type="text" placeholder="Bottom">
-				<input type="text" placeholder="Left">
+				<input type="text" id="border-style-top" placeholder="Top">
+				<input type="text" id="border-style-right" placeholder="Right">
+				<input type="text" id="border-style-bottom" placeholder="Bottom">
+				<input type="text" id="border-style-left" placeholder="Left">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-style-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Border Color</div>
 		<div class="card" id="border-color">
 			<div class="longhand">
-				<input type="text" placeholder="Top">
-				<input type="text" placeholder="Right">
-				<input type="text" placeholder="Bottom">
-				<input type="text" placeholder="Left">
+				<input type="text" id="border-color-top" placeholder="Top">
+				<input type="text" id="border-color-right" placeholder="Right">
+				<input type="text" id="border-color-bottom" placeholder="Bottom">
+				<input type="text" id="border-color-left" placeholder="Left">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="border-color-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Font</div>
 		<div class="card" id="font">
 			<div class="longhand">
-				<input type="text" placeholder="Style">
-				<input type="text" placeholder="Variant">
-				<input type="text" placeholder="Weight">
-				<input type="text" placeholder="Stretch">
-				<input type="text" placeholder="Size">
-				<input type="text" placeholder="Line Height">
-				<input type="text" placeholder="Family">
+				<input type="text" id="font-style" placeholder="Style">
+				<input type="text" id="font-variant" placeholder="Variant">
+				<input type="text" id="font-weight" placeholder="Weight">
+				<input type="text" id="font-stretch" placeholder="Stretch">
+				<input type="text" id="font-size" placeholder="Size">
+				<input type="text" id="font-line-height" placeholder="Line Height">
+				<input type="text" id="font-family" placeholder="Family">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="font-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">List Style</div>
 		<div class="card" id="list-style">
 			<div class="longhand">
-				<input type="text" placeholder="Type">
-				<input type="text" placeholder="Position">
-				<input type="text" placeholder="Image">
+				<input type="text" id="list-style-type" placeholder="Type">
+				<input type="text" id="list-style-position" placeholder="Position">
+				<input type="text" id="list-style-image" placeholder="Image">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="list-style-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Margin</div>
 		<div class="card" id="margin">
 			<div class="longhand">
-				<input type="text" placeholder="Top">
-				<input type="text" placeholder="Right">
-				<input type="text" placeholder="Bottom">
-				<input type="text" placeholder="Left">
+				<input type="text" id="margin-top" placeholder="Top">
+				<input type="text" id="margin-right" placeholder="Right">
+				<input type="text" id="margin-bottom" placeholder="Bottom">
+				<input type="text" id="margin-left" placeholder="Left">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="margin-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Padding</div>
 		<div class="card" id="padding">
 			<div class="longhand">
-				<input type="text" placeholder="Top">
-				<input type="text" placeholder="Right">
-				<input type="text" placeholder="Bottom">
-				<input type="text" placeholder="Left">
+				<input type="text" id="padding-top" placeholder="Top">
+				<input type="text" id="padding-right" placeholder="Right">
+				<input type="text" id="padding-bottom" placeholder="Bottom">
+				<input type="text" id="padding-left" placeholder="Left">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="padding-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
 
 		<div class="subheader">Transition</div>
 		<div class="card" id="transition">
 			<div class="longhand">
-				<input type="text" placeholder="Property">
-				<input type="text" placeholder="Duration">
-				<input type="text" placeholder="Timing Function">
-				<input type="text" placeholder="Delay">
+				<input type="text" id="transition-property" placeholder="Property">
+				<input type="text" id="transition-duration" placeholder="Duration">
+				<input type="text" id="transition-timing-function" placeholder="Timing Function">
+				<input type="text" id="transition-delay" placeholder="Delay">
 			</div>
 			
 			<div class="shorthand">
-				<input type="text" placeholder="Shorthand">
+				<input type="text" id="transition-shorthand" placeholder="Shorthand">
 			</div>
 		</div>
-		
+	</div>
+
+	<!-- Text -->
+	<div class="main" id="text" style="display: none;">
+		<div class="card text longhand" contenteditable="true">Poop</div>
+		<div class="card text shorthand" contenteditable="true">Poop</div>
+	</div>
+
+	<!-- File -->
+	<div class="main" id="file" style="display: none;">
 	</div>
 
 	<!-- Scripts -->
