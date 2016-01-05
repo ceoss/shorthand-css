@@ -24,7 +24,7 @@ body {
 	transition: none;
 }
 
-.shadow.appbar {
+body.scrolling .appbar {
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
 	transition: box-shadow .2s ease .1s;
 }
@@ -35,7 +35,7 @@ body {
 	font-weight: 500;
 	height: 64px;
 	line-height: 64px;
-	padding-left: 12px;
+	padding-left: 24px;
 }
 
 .tabs {
@@ -60,6 +60,7 @@ body {
 	padding: 0 12px;
 	display: inline-block;
 	transition: color .1s ease;
+	margin: 0 12px 0 0;
 }
 
 .tabs > .tab.active {
@@ -69,10 +70,6 @@ body {
 
 .tabs > .tab:hover {
 	color: #fff;
-}
-
-.tabs > .tab {
-	margin: 0 12px 0 0;
 }
 
 /* Waterfall */
@@ -86,14 +83,12 @@ body {
 	z-index: -1;
 	transition: height .2s ease;
 }
-.waterfall.falling {
+body:not(.scrolling) .waterfall {
 	height: 128px;
 }
 
 /* Main */
 .main {
-	/*position: relative;
-	top: -128px;*/
 	margin: 0 24px 24px 24px;
 }
 
@@ -117,8 +112,9 @@ body {
 	color: rgba(0,0,0,.54);
 	padding: 0 24px;
 	box-sizing: border-box;
+	transition: color .2 ease;
 }
-.subheader.white {
+body:not(.scrolling) #tester.subheader {
 	color: #fff;
 }
 
@@ -161,11 +157,8 @@ input:focus {
 	width: calc(33.33% - 16px);
 	float: left;
 }
- {
-	width: calc(100% - 16px);
-}
 
-/* Testers */
+/* Tester */
 .tester-container {
 	max-width: 1200px;
 	margin: auto;
@@ -188,4 +181,56 @@ input:focus {
 	margin: 24px;
 	border: 24px solid;
 	border-color: #FFEEBC;
+}
+
+@media (max-width: 600px) and (orientation: portrait), (max-width: 960px) and (orientation: landscape) {
+	body {
+		margin: 96px 0 0 0;
+	}
+	.appbar {
+		height: 48px;
+		transition: top .2s ease;
+	}
+	.appbar .appname {
+		height: 48px;
+		line-height: 48px;
+		padding-left: 16px
+	}
+	.tabs {
+		height: 48px;
+		top: 48px;
+		background: #037ed3;
+		box-shadow: none;
+		transition: box-shadow .2s ease .1s;
+		transition: top .2s ease;
+	}
+
+	.tabs > .tab {
+		width: 33.33%;
+		height: 48px;
+		line-height: 48px;
+		margin: 0;
+		float: left;
+	}
+	body.scrolling .appbar {
+		top: -48px;
+		transition: top .2s ease;
+		box-shadow: none;
+	}
+	body.scrolling .tabs {
+		top: 0;
+		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+	}
+	.waterfall {
+		top: 48px;
+	}
+	body:not(.scrolling) .waterfall {
+		height: 128px;
+	}
+	.main {
+		margin: 0 16px 16px 16px;
+	}
+	.subheader {
+		padding: 0 16px;
+	}
 }
