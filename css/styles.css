@@ -17,7 +17,6 @@ body {
 	box-shadow: none;
 	position: fixed;
 	top: 0;
-	left: 0;
 	-webkit-user-select: none;
 	user-select: none;
 	z-index: 50;
@@ -25,8 +24,8 @@ body {
 }
 
 body.scrolling .appbar {
-	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
-	transition: box-shadow .2s ease .1s;
+	box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.14), 0 10px 10px -9px rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.4);
+	transition: box-shadow .2s ease .125s;
 }
 
 .appbar .appname {
@@ -41,7 +40,6 @@ body.scrolling .appbar {
 .tabs {
 	margin: auto;
 	height: 64px;
-	cursor: pointer;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -52,6 +50,7 @@ body.scrolling .appbar {
 .tabs > .tab {
 	height: 64px;
 	line-height: 64px;
+	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: 500;
 	font-family: 'Roboto', sans-serif;
@@ -76,15 +75,14 @@ body.scrolling .appbar {
 .waterfall {
 	height: 0;
 	width: 100%;
-	position: fixed;
+	position: absolute;
 	top: 64px;
-	left: 0;
 	background: #037ed3;
 	z-index: -1;
 	transition: height .2s ease;
 }
 body:not(.scrolling) .waterfall {
-	height: 128px;
+	height: 192px;
 }
 
 /* Main */
@@ -112,7 +110,7 @@ body:not(.scrolling) .waterfall {
 	color: rgba(0,0,0,.54);
 	padding: 0 24px;
 	box-sizing: border-box;
-	transition: color .2 ease;
+	transition: color .2s ease;
 }
 body:not(.scrolling) #tester.subheader {
 	color: #fff;
@@ -134,14 +132,7 @@ input:focus {
 	border-bottom: 2px solid #037ed3;
 }
 
-#padding > .longhand > input,
-#margin > .longhand > input,
-#border-radius > .longhand > input,
-#font > .longhand > input,
-#border-width > .longhand > input,
-#border-style > .longhand > input,
-#border-color > .longhand > input,
-#transition > .longhand > input {
+.longhand > input {
 	width: calc(25% - 16px);
 	float: left;
 }
@@ -155,19 +146,16 @@ input:focus {
 #border-left > .longhand > input,
 #list-style > .longhand > input {
 	width: calc(33.33% - 16px);
-	float: left;
 }
 
 /* Tester */
-.tester-container {
-	max-width: 1200px;
-	margin: auto;
-}
 .tester-margin {
 	background-color: #F9CC9D;
 	overflow: auto;
 	height: 100%;
 	width: 100%;
+	max-width: 1200px;
+	margin: auto;
 	border-radius: 2px;
 }
 .tester {
@@ -200,8 +188,7 @@ input:focus {
 		height: 48px;
 		top: 48px;
 		background: #037ed3;
-		box-shadow: none;
-		transition: box-shadow .2s ease .1s;
+		box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.14), 0 10px 10px -9px rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.4);
 		transition: top .2s ease;
 	}
 
@@ -219,18 +206,40 @@ input:focus {
 	}
 	body.scrolling .tabs {
 		top: 0;
-		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
 	}
 	.waterfall {
-		top: 48px;
+		/*position: fixed;
+		top: 48px;*/
+		display: none;
 	}
-	body:not(.scrolling) .waterfall {
-		height: 128px;
+	body:not(.scrolling) #tester.subheader {
+		color: rgba(0,0,0,.54);
 	}
 	.main {
 		margin: 0 16px 16px 16px;
 	}
 	.subheader {
 		padding: 0 16px;
+	}
+	#border > .longhand > input,
+	#border-top > .longhand > input,
+	#border-right > .longhand > input,
+	#border-bottom > .longhand > input,
+	#border-left > .longhand > input,
+	#list-style > .longhand > input,
+	.longhand > input {
+		width: calc(50% - 16px);
+	}
+}
+@media (max-width: 600px) {
+	#border > .longhand > input,
+	#border-top > .longhand > input,
+	#border-right > .longhand > input,
+	#border-bottom > .longhand > input,
+	#border-left > .longhand > input,
+	#list-style > .longhand > input,
+	.longhand > input {
+		width: calc(100% - 16px);
+		float: none;
 	}
 }
