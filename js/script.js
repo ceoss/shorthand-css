@@ -16,8 +16,6 @@ function appbar() {
 document.addEventListener("scroll", function(){appbar();});
 appbar();
 
-var tester = document.getElementById("tester");
-
 var backgroundImage = document.getElementById("background-image");
 var backgroundPosition = document.getElementById("background-position");
 var backgroundSize = document.getElementById("background-size");
@@ -52,7 +50,6 @@ function convert() {
 	if (backgroundColor.value.length > 0) {backgroundValue += backgroundColor.value.replace(/\s+$/, "") + " ";};
 
 	backgroundShorthand.value = backgroundValue.replace(/\s+$/, ";");
-	tester.style.background = backgroundValue.replace(/^background:\s*/, "");
 
 	// Border
 	var borderValue = "border: ";
@@ -60,6 +57,5 @@ function convert() {
 	if (borderStyle.value.length > 0) {borderValue += borderStyle.value.replace(/\s+$/, "") + " ";};
 	if (borderColor.value.length > 0) {borderValue += borderColor.value.replace(/\s+$/, "") + " ";};
 	borderShorthand.value = borderValue.replace(/\s+$/, ";");
-	tester.style.border = borderValue.replace(/^border:\s*/, "");
 }
 document.addEventListener("input", function(){convert();});
