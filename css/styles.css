@@ -71,6 +71,25 @@ body.scrolling .appbar {
 	color: #fff;
 }
 
+/* Actions */
+.appbar .actions {
+	position: absolute;
+	right: 24px;
+	display: inline-block;
+	margin: 8px 0;
+}
+.appbar .actions .material-icons {
+	padding: 12px;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0);
+	transition: background 0.3s ease;
+}
+.appbar .actions .material-icons:hover {
+	background: rgba(255, 255, 255, .2);
+}
+
 /* Waterfall */
 .waterfall {
 	height: 0;
@@ -99,8 +118,26 @@ body:not(.scrolling) .waterfall {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	padding: 24px;
 	box-sizing: border-box;
+	position: relative;
+}
+.card .actions {
+	position: absolute;
+	right: 24px;
+	display: inline-block;
+}
+.card .actions .material-icons {
+	padding: 12px;
+	color: rgba(0,0,0,.54);
+	cursor: pointer;
+	border-radius: 50%;
+	background: rgba(33, 33, 33, 0);
+	transition: background 0.3s ease;
+}
+.card .actions .material-icons:hover {
+	background: rgba(33, 33, 33, .1);
 }
 
+/* Sub headers */
 .subheader {
 	max-width: 1200px;
 	margin: auto;
@@ -112,8 +149,24 @@ body:not(.scrolling) .waterfall {
 	box-sizing: border-box;
 	transition: color .2s ease;
 }
-body:not(.scrolling) .subheader:nth-child(1) {
+body:not(.scrolling) > .main > .subheader:nth-child(1) {
 	color: #fff;
+}
+.card .subheader {
+	padding: 0;
+	margin: 0;
+}
+
+/* Sections */
+.shorthand,
+.longhand {
+	margin-bottom: 16px;
+}
+.shorthand::after,
+.longhand::after {
+	content: '';
+	clear: both;
+	display: block;
 }
 
 /* Inputs */
@@ -149,6 +202,81 @@ input:focus {
 #border-left > .longhand > input,
 #list-style > .longhand > input {
 	width: calc(33.33% - 16px);
+}
+
+/* Buttons */
+.button {
+	font-weight: 600;
+	text-transform: uppercase;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+	font-family: "Roboto";
+	color: #fff;
+	text-align: center;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.button > span {
+	cursor: pointer;
+	margin: 8px;
+	height: 32px;
+	font-size: 13px;
+	line-height: 32px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	min-width: 88px;
+	padding: 0 16px;
+	display: inline-block;
+	letter-spacing: .5px;
+	box-shadow: none;
+	background: #037ed3;
+	transition: box-shadow .2s ease;
+}
+.button > span:hover {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.button > span::after {
+	content: '';
+	transition: background .2s ease;
+	background: rgba(153,153,153,0);
+	height: 100%;
+	display: block;
+	border-radius: inherit;
+	padding: inherit;
+	position: relative;
+	bottom: 32px;
+	margin: 0 -16px;
+}
+.button.flat {
+	color: #037ed3;
+}
+.button.flat > span {
+	transition: box-shadow .2s ease, background .2s ease;
+	box-shadow: none;
+	background: rgba(153,153,153,0);
+}
+.button.flat > span:hover,
+.button > span:hover::after {
+	background: rgba(153,153,153,.12);
+}
+.button.flat > span:active,
+.button > span:active::after {
+	background: rgba(153,153,153,.4);
+}
+.button.flat.dark > span,
+.button.dark > span::after {
+	background: rgba(204,204,204,.0);
+}
+.button.flat.dark > span:hover,
+.button.dark > span:hover::after {
+	background: rgba(204,204,204,.12);
+}
+.button.flat.dark > span:active,
+.button.dark > span:active::after {
+	background: rgba(204,204,204,.25);
+}
+.button.center {
+	margin: auto;
 }
 
 @media (max-width: 600px) and (orientation: portrait), (max-width: 960px) and (orientation: landscape) {
@@ -187,10 +315,14 @@ input:focus {
 	body.scrolling .tabs {
 		top: 0;
 	}
+	.appbar .actions {
+		right: 16px;
+		margin: 0;
+	}
 	.waterfall {
 		display: none;
 	}
-	body:not(.scrolling) .subheader:nth-child(1) {
+	body:not(.scrolling) > .main > .subheader:nth-child(1) {
 		color: rgba(0,0,0,.54);
 	}
 	.main {
@@ -208,6 +340,19 @@ input:focus {
 	.longhand > input {
 		width: calc(50% - 16px);
 	}
+
+	.button > span {
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+		height: 36px;
+		font-size: 14px;
+		line-height: 36px;
+	}
+	.button > span:hover {
+		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+	}
+	.button > span::after {
+		bottom: 36px;
+	}
 }
 @media (max-width: 600px) {
 	#border > .longhand > input,
@@ -219,5 +364,19 @@ input:focus {
 	.longhand > input {
 		width: calc(100% - 16px);
 		float: none;
+	}
+}
+@media (pointer:coarse) {
+	.button > span {
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+		height: 36px;
+		font-size: 14px;
+		line-height: 36px;
+	}
+	.button > span:hover {
+		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+	}
+	.button > span::after {
+		bottom: 36px;
 	}
 }

@@ -16,46 +16,77 @@ function appbar() {
 document.addEventListener("scroll", function(){appbar();});
 appbar();
 
-var backgroundImage = document.getElementById("background-image");
-var backgroundPosition = document.getElementById("background-position");
-var backgroundSize = document.getElementById("background-size");
-var backgroundRepeat = document.getElementById("background-repeat");
-var backgroundOrigin = document.getElementById("background-origin");
-var backgroundClip = document.getElementById("background-clip");
-var backgroundAttachment = document.getElementById("background-attachment");
-var backgroundColor = document.getElementById("background-color");
-var backgroundShorthand = document.getElementById("background-shorthand");
 
-var borderWidth = document.getElementById("border-width");
-var borderStyle = document.getElementById("border-style");
-var borderColor = document.getElementById("border-color");
-var borderShorthand = document.getElementById("border-shorthand");
-function convert() {
-	// Background
-	var backgroundValue = "background: ";
-	if (backgroundImage.value.length > 0) {backgroundValue += backgroundImage.value.replace(/\s+$/, "") + " ";};
-
-	if (backgroundPosition.value.length > 0 && backgroundSize.value.length > 0) {
-		backgroundValue += backgroundPosition.value.replace(/\s+$/, "") + " / " + backgroundSize.value.replace(/\s+$/, "") + " ";
-	} else if (backgroundPosition.value.length > 0 && backgroundSize.value.length === 0) {
-		backgroundValue += backgroundPosition.value.replace(/\s+$/, "") + " ";
-	} else if (backgroundSize.value.length > 0 && backgroundPosition.value.length === 0) {
-		backgroundValue += "initial / " + backgroundSize.value.replace(/\s+$/, "") + " ";
+var errors = [];
+window.onerror = function(error, url, line) {
+	error = {"error": error, "url": url, "line": line};
+	if (errors.length > 0) {
+		var lastError = errors[errors.length - 1];
+		if (error.error === lastError.error && error.url === lastError.url && error.line === lastError.line) {
+			typeof lastError.recurrences === "number" ? lastError.recurrences ++ : lastError.recurrences = 1;
+			return;
+		}
 	}
-
-	if (backgroundRepeat.value.length > 0) {backgroundValue += backgroundRepeat.value.replace(/\s+$/, "") + " ";};
-	if (backgroundOrigin.value.length > 0) {backgroundValue += backgroundOrigin.value.replace(/\s+$/, "") + " ";};
-	if (backgroundClip.value.length > 0) {backgroundValue += backgroundClip.value.replace(/\s+$/, "") + " ";};
-	if (backgroundAttachment.value.length > 0) {backgroundValue += backgroundAttachment.value.replace(/\s+$/, "") + " ";};
-	if (backgroundColor.value.length > 0) {backgroundValue += backgroundColor.value.replace(/\s+$/, "") + " ";};
-
-	backgroundShorthand.value = backgroundValue.replace(/\s+$/, ";");
-
-	// Border
-	var borderValue = "border: ";
-	if (borderWidth.value.length > 0) {borderValue += borderWidth.value.replace(/\s+$/, "") + " ";};
-	if (borderStyle.value.length > 0) {borderValue += borderStyle.value.replace(/\s+$/, "") + " ";};
-	if (borderColor.value.length > 0) {borderValue += borderColor.value.replace(/\s+$/, "") + " ";};
-	borderShorthand.value = borderValue.replace(/\s+$/, ";");
+	errors.push(error);
+};
+function bugReport() {
+	var url = "https://github.com/xorprojects/Shorthand-CSS/issues/new?title=" + encodeURIComponent("Problem With Input") + "&body=" + encodeURIComponent("Explain your problem here: \n\n*Please leave this for the developers:*\n```json\nErrors: ");
+	if (errors.length > 0) {
+		for (var i = 0; i < errors.length; i++) {
+			url += encodeURIComponent(JSON.stringify(errors[i]));
+		}
+	} else {
+		url += encodeURIComponent("None. (Yay!)");
+	}
+	url += encodeURIComponent("\n\nUser-Agent: " + navigator.userAgent + "\n```");
+	var win = window.open(url, '_blank');
+	win.focus();
 }
-document.addEventListener("input", function(){convert();});
+
+
+function addBackground() {
+	var inputs = document.querySelectorAll("#background > .longhand > input");
+	for (var i = 0; i <= 7; i++) {
+		input = inputs[i].cloneNode();
+		input.value = "";
+		document.querySelector("#background > .longhand").appendChild(input);
+	}
+}
+
+
+function convertToShorthand(card) {
+	// Add each input + space unless special exeption
+	// TO-DO 1) Use next sibling 2) Add comma for multiple backgrounds 3) Correct element regardless to subheaders and buttons
+	var inputs = card.children[1].children;
+	var value = card.id + ": ";
+	for (var i = 0; i < inputs.length; i++) {
+		if (inputs[i].tagName !== "INPUT") {
+			continue;
+		}
+		if (inputs[i].id === "background-position" || inputs[i].id === "font-size") {
+			if (inputs[i].value.length > 0 && inputs[i + 1].value.length > 0) {
+				value += inputs[i].value.replace(/\s+$/, "") + " / " + inputs[i + 1].value.replace(/\s+$/, "") + " ";
+			} else if (inputs[i].value.length > 0 && inputs[i + 1].value.length === 0) {
+				value += inputs[i].value.replace(/\s+$/, "") + " ";
+			} else if (inputs[i + 1].value.length > 0 && inputs[i].value.length === 0) {
+				value += inputs[i].getAttribute("initial-value") + " / " + inputs[i + 1].value.replace(/\s+$/, "") + " ";
+			}
+		} else if (inputs[i].value.length > 0 && inputs[i].id !== "background-size" && inputs[i].id !== "line-height") {
+			value += inputs[i].value.replace(/\s+$/, "") + " ";
+		}
+		// Required Values
+		if (inputs[i].value.length === 0 && inputs[i].required) {
+			value += inputs[i].getAttribute("initial-value") + " ";
+		}
+	}
+	card.children[3].children[1].value = value.replace(/\s+$/, ";");
+}
+document.addEventListener("input", function(event) {
+	var card = event.target.parentElement.parentElement;
+	var inputParent = event.target.parentElement;
+	if (inputParent.classList.contains("shorthand")) {
+
+	} else {
+		convertToShorthand(card);
+	}
+});
