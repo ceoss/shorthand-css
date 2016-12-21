@@ -44,7 +44,7 @@ function permalink() {
 			}
 		}
 	}
-	convertToShorthand(card);
+		convertToShorthand(card);
 }
 permalink();
 
