@@ -42,8 +42,8 @@
 		<span class="appname">Shorthand CSS</span>
 		<span class="tabs">
 			<span class="tab active">Input</span>
-			<span class="tab">Text</span>
-			<span class="tab">File</span>
+			<span class="tab" onclick="alert('Coming soon, well... soon-ish ;)')">Text</span>
+			<span class="tab" onclick="alert('Coming soon, well... soon-ish ;)')">File</span>
 		</span>
 		<span class="actions">
 			<i class="material-icons" onclick="bugReport();" title="Report a Bug via GitHub">&#xE868;</i>
@@ -55,260 +55,265 @@
 	<!-- Input -->
 	<div class="main" id="input">
 		<div class="subheader">Background</div>
-		<div class="card" id="background">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+		<div class="card" id="background" data-can-layer>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="background-image" placeholder="Image" initial-value="none">
-				<input type="text" id="background-position" placeholder="Position" initial-value="0% 0%">
-				<input type="text" id="background-size" placeholder="Size" initial-value="auto auto">
-				<input type="text" id="background-repeat" placeholder="Repeat" initial-value="repeat">
-				<input type="text" id="background-origin" placeholder="Origin" initial-value="padding-box">
-				<input type="text" id="background-clip" placeholder="Clip" initial-value="border-box">
-				<input type="text" id="background-attachment" placeholder="Attachment" initial-value="scroll">
-				<input type="text" id="background-color" placeholder="Color" initial-value="transparent">
+				<div class="layer">
+					<input type="text" id="background-image" placeholder="Image" data-initial-value="none">
+					<input type="text" id="background-position" placeholder="Position" data-initial-value="0% 0%">
+					<input type="text" id="background-size" placeholder="Size" data-initial-value="auto auto">
+					<input type="text" id="background-repeat" placeholder="Repeat" data-initial-value="repeat">
+					<input type="text" id="background-origin" placeholder="Origin" data-initial-value="padding-box">
+					<input type="text" id="background-clip" placeholder="Clip" data-initial-value="border-box">
+					<input type="text" id="background-attachment" placeholder="Attachment" data-initial-value="scroll">
+					<input type="text" id="background-color" placeholder="Color" data-initial-value="transparent">
+				</div>
 			</div>
 
-			<div class="button dark center"><span onclick="addBackground();">Add Background</span></div>
+			<div class="buttons center">
+				<span id="add-background" class="button dark"><span onclick="addBackground();">Add Background</span></span>
+				<span id="remove-background" class="button dark disabled"><span onclick="removeBackground();">Remove Background</span></span>
+			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="background-shorthand" placeholder="Shorthand">
+				<input type="text" id="background-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border</div>
 		<div class="card" id="border">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-width" placeholder="Width" initial-value="medium">
-				<input type="text" id="border-style" placeholder="Style" initial-value="none">
-				<input type="text" id="border-color" placeholder="Color" initial-value="currentColor">
+				<input type="text" id="border-width" placeholder="Width" data-initial-value="medium">
+				<input type="text" id="border-style" placeholder="Style" data-initial-value="none">
+				<input type="text" id="border-color" placeholder="Color" data-initial-value="currentColor">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Radius</div>
 		<div class="card" id="border-radius">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-radius-top Left" placeholder="Top Left" initial-value="0">
-				<input type="text" id="border-radius-top Right" placeholder="Top Right" initial-value="0">
-				<input type="text" id="border-radius-bottom Left" placeholder="Bottom Left" initial-value="0">
-				<input type="text" id="border-radius-bottom Right" placeholder="Bottom Right" initial-value="0">
+				<input type="text" id="border-radius-top Left" placeholder="Top Left" data-initial-value="0">
+				<input type="text" id="border-radius-top Right" placeholder="Top Right" data-initial-value="0">
+				<input type="text" id="border-radius-bottom Left" placeholder="Bottom Left" data-initial-value="0">
+				<input type="text" id="border-radius-bottom Right" placeholder="Bottom Right" data-initial-value="0">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-radius-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-radius-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Top</div>
 		<div class="card" id="border-top">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-top-width" placeholder="Width" initial-value="medium">
-				<input type="text" id="border-top-style" placeholder="Style" initial-value="none">
-				<input type="text" id="border-top-color" placeholder="Color" initial-value="currentColor">
+				<input type="text" id="border-top-width" placeholder="Width" data-initial-value="medium">
+				<input type="text" id="border-top-style" placeholder="Style" data-initial-value="none">
+				<input type="text" id="border-top-color" placeholder="Color" data-initial-value="currentColor">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-top-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-top-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Right</div>
 		<div class="card" id="border-right">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-right-width" placeholder="Width" initial-value="medium">
-				<input type="text" id="border-right-style" placeholder="Style" initial-value="none">
-				<input type="text" id="border-right-color" placeholder="Color" initial-value="currentColor">
+				<input type="text" id="border-right-width" placeholder="Width" data-initial-value="medium">
+				<input type="text" id="border-right-style" placeholder="Style" data-initial-value="none">
+				<input type="text" id="border-right-color" placeholder="Color" data-initial-value="currentColor">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-right-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-right-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Bottom</div>
 		<div class="card" id="border-bottom">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-bottom-width" placeholder="Width" initial-value="medium">
-				<input type="text" id="border-bottom-style" placeholder="Style" initial-value="none">
-				<input type="text" id="border-bottom-color" placeholder="Color" initial-value="currentColor">
+				<input type="text" id="border-bottom-width" placeholder="Width" data-initial-value="medium">
+				<input type="text" id="border-bottom-style" placeholder="Style" data-initial-value="none">
+				<input type="text" id="border-bottom-color" placeholder="Color" data-initial-value="currentColor">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-bottom-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-bottom-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Left</div>
 		<div class="card" id="border-left">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-left-width" placeholder="Width" initial-value="medium">
-				<input type="text" id="border-left-style" placeholder="Style" initial-value="none">
-				<input type="text" id="border-left-color" placeholder="Color" initial-value="currentColor">
+				<input type="text" id="border-left-width" placeholder="Width" data-initial-value="medium">
+				<input type="text" id="border-left-style" placeholder="Style" data-initial-value="none">
+				<input type="text" id="border-left-color" placeholder="Color" data-initial-value="currentColor">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-left-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-left-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Width</div>
 		<div class="card" id="border-width">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-width-top" placeholder="Top" initial-value="medium">
-				<input type="text" id="border-width-right" placeholder="Right" initial-value="medium">
-				<input type="text" id="border-width-bottom" placeholder="Bottom" initial-value="medium">
-				<input type="text" id="border-width-left" placeholder="Left" initial-value="medium">
+				<input type="text" id="border-width-top" placeholder="Top" data-initial-value="medium">
+				<input type="text" id="border-width-right" placeholder="Right" data-initial-value="medium">
+				<input type="text" id="border-width-bottom" placeholder="Bottom" data-initial-value="medium">
+				<input type="text" id="border-width-left" placeholder="Left" data-initial-value="medium">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-width-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-width-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Style</div>
 		<div class="card" id="border-style">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-style-top" placeholder="Top" initial-value="nonemedium">
-				<input type="text" id="border-style-right" placeholder="Right" initial-value="nonemedium">
-				<input type="text" id="border-style-bottom" placeholder="Bottom" initial-value="nonemedium">
-				<input type="text" id="border-style-left" placeholder="Left" initial-value="nonemedium">
+				<input type="text" id="border-style-top" placeholder="Top" data-initial-value="nonemedium">
+				<input type="text" id="border-style-right" placeholder="Right" data-initial-value="nonemedium">
+				<input type="text" id="border-style-bottom" placeholder="Bottom" data-initial-value="nonemedium">
+				<input type="text" id="border-style-left" placeholder="Left" data-initial-value="nonemedium">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-style-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-style-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Border Color</div>
 		<div class="card" id="border-color">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="border-color-top" placeholder="Top" initial-value="currentColor">
-				<input type="text" id="border-color-right" placeholder="Right" initial-value="currentColor">
-				<input type="text" id="border-color-bottom" placeholder="Bottom" initial-value="currentColor">
-				<input type="text" id="border-color-left" placeholder="Left" initial-value="currentColor">
+				<input type="text" id="border-color-top" placeholder="Top" data-initial-value="currentColor">
+				<input type="text" id="border-color-right" placeholder="Right" data-initial-value="currentColor">
+				<input type="text" id="border-color-bottom" placeholder="Bottom" data-initial-value="currentColor">
+				<input type="text" id="border-color-left" placeholder="Left" data-initial-value="currentColor">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="border-color-shorthand" placeholder="Shorthand">
+				<input type="text" id="border-color-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Font</div>
 		<div class="card" id="font">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="font-style" placeholder="Style" initial-value="normal">
-				<input type="text" id="font-variant" placeholder="Variant" initial-value="normal">
-				<input type="text" id="font-weight" placeholder="Weight" initial-value="normal">
-				<input type="text" id="font-stretch" placeholder="Stretch" initial-value="normal">
-				<input type="text" id="font-size" placeholder="Size" required initial-value="medium">
-				<input type="text" id="line-height" placeholder="Line Height" initial-value="normal">
-				<input type="text" id="font-family" placeholder="Family" required initial-value="normal">
+				<input type="text" id="font-style" placeholder="Style" data-initial-value="normal">
+				<input type="text" id="font-variant" placeholder="Variant" data-initial-value="normal">
+				<input type="text" id="font-weight" placeholder="Weight" data-initial-value="normal">
+				<input type="text" id="font-stretch" placeholder="Stretch" data-initial-value="normal">
+				<input type="text" id="font-size" placeholder="Size" required data-initial-value="medium">
+				<input type="text" id="line-height" placeholder="Line Height" data-initial-value="normal">
+				<input type="text" id="font-family" placeholder="Family" required data-initial-value="normal">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="font-shorthand" placeholder="Shorthand">
+				<input type="text" id="font-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">List Style</div>
 		<div class="card" id="list-style">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="list-style-type" placeholder="Type" initial-value="disc">
-				<input type="text" id="list-style-position" placeholder="Position" initial-value="outside">
-				<input type="text" id="list-style-image" placeholder="Image" initial-value="none">
+				<input type="text" id="list-style-type" placeholder="Type" data-initial-value="disc">
+				<input type="text" id="list-style-position" placeholder="Position" data-initial-value="outside">
+				<input type="text" id="list-style-image" placeholder="Image" data-initial-value="none">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="list-style-shorthand" placeholder="Shorthand">
+				<input type="text" id="list-style-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Margin</div>
 		<div class="card" id="margin">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="margin-top" placeholder="Top" required initial-value="0">
-				<input type="text" id="margin-right" placeholder="Right" required initial-value="0">
-				<input type="text" id="margin-bottom" placeholder="Bottom" required initial-value="0">
-				<input type="text" id="margin-left" placeholder="Left" required initial-value="0">
+				<input type="text" id="margin-top" placeholder="Top" required data-initial-value="0">
+				<input type="text" id="margin-right" placeholder="Right" required data-initial-value="0">
+				<input type="text" id="margin-bottom" placeholder="Bottom" required data-initial-value="0">
+				<input type="text" id="margin-left" placeholder="Left" required data-initial-value="0">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="margin-shorthand" placeholder="Shorthand">
+				<input type="text" id="margin-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Padding</div>
 		<div class="card" id="padding">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="padding-top" placeholder="Top" required initial-value="0">
-				<input type="text" id="padding-right" placeholder="Right" required initial-value="0">
-				<input type="text" id="padding-bottom" placeholder="Bottom" required initial-value="0">
-				<input type="text" id="padding-left" placeholder="Left" required initial-value="0">
+				<input type="text" id="padding-top" placeholder="Top" required data-initial-value="0">
+				<input type="text" id="padding-right" placeholder="Right" required data-initial-value="0">
+				<input type="text" id="padding-bottom" placeholder="Bottom" required data-initial-value="0">
+				<input type="text" id="padding-left" placeholder="Left" required data-initial-value="0">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="padding-shorthand" placeholder="Shorthand">
+				<input type="text" id="padding-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 
 		<div class="subheader">Transition</div>
 		<div class="card" id="transition">
-			<div class="actions"><i class="material-icons" onclick="permalink();" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="actions"><i class="material-icons" onclick="makePermalink(this);" title="Permalink">&#xE157;</i><i class="material-icons" onclick="help();" title="Help">&#xE88E;</i></div>
+			<div class="subheader">Longhand</div>
 			<div class="longhand">
-				<div class="subheader">Longhand</div>
-				<input type="text" id="transition-property" placeholder="Property" initial-value="all">
-				<input type="text" id="transition-duration" placeholder="Duration" initial-value="0s">
-				<input type="text" id="transition-timing-function" placeholder="Timing Function" initial-value="ease">
-				<input type="text" id="transition-delay" placeholder="Delay" initial-value="0s">
+				<input type="text" id="transition-property" placeholder="Property" data-initial-value="all">
+				<input type="text" id="transition-duration" placeholder="Duration" data-initial-value="0s">
+				<input type="text" id="transition-timing-function" placeholder="Timing Function" data-initial-value="ease">
+				<input type="text" id="transition-delay" placeholder="Delay" data-initial-value="0s">
 			</div>
 			
+			<div class="subheader">Shorthand</div>
 			<div class="shorthand">
-				<div class="subheader">Shorthand</div>
-				<input type="text" id="transition-shorthand" placeholder="Shorthand">
+				<input type="text" id="transition-shorthand" placeholder="Shorthand" disabled>
 			</div>
 		</div>
 	</div>
@@ -325,11 +330,7 @@
 
 	<!-- Scripts -->
 	<script type="text/javascript" src="/js/script.js"></script>
-	<script type="text/javascript">
-	if (document.URL === "http://shorthandcss.com/") {
-		alert("This site is in development. Features probably wont work like you'd expect.")
-	}
-	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
 	<!-- Google Analytics -->
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
