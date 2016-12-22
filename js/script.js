@@ -268,13 +268,71 @@ function convertToShorthand(card) {
 	shorthandInput.classList.add("active");
 	setTimeout(function() {shorthandInput.classList.remove("active");}, 600);
 }
+
+
+function convertToLonghand(card) {
+	// Numbers
+	var number = "[-+.e\\d]+";
+	var length = "0|" + number + "(?:em|ex|ch|rem|vh|vw|vmin|vmax|px|mm|q|cm|in|pt|pc|mozmm)";
+	var percentage = number + "%";
+	var calc = "calc\\(?:(?:\\s*" + length + "|" + percentage + "\\s*[\\+\\*\\/\\-]\\s*)+(?:" + length + "|" + percentage + ")\\s*\\)";
+
+	// Colors
+	var rgb = "rgb\\(\\s*(?:" + number + "\\s*,\\s*){2}" + number + "\\s*\\)";
+	var rgba = "rgba\\(\\s*(?:" + number + "\\s*,\\s*){3}" + number + "\\s*\\)";
+	var hsl = "hsl\\(\\s*" + number + "\\s*,\\s*" + percentage + "\\s*,\\s*" + percentage + "\\s*\\)";
+	var hsla = "hsla\\(\\s*" + number + "\\s*,\\s*(?:" + percentage + "\\s*,\\s*){2}" + number + "\\s*\\)";
+	var hex = "#(?:[0-9a-f]{6}|[0-9a-f]{3})";
+	var named = "transparent|aliceblue|antiquewhite|aqua|aquamarine|azure|beige|bisque|black|blanchedalmond|blue|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|gold|goldenrod|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavender|lavenderblush|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|teal|thistle|tomato|turquoise|violet|wheat|white|whitesmoke|yellow|yellowgreen";
+	var system = "ActiveBorder|ActiveCaption|AppWorkspace|Background|ButtonFace|ButtonHighlight|ButtonShadow|ButtonText|CaptionText|GrayText|Highlight|HighlightText|InactiveBorder|InactiveCaption|InactiveCaptionText|InfoBackground|InfoText|Menu|MenuText|Scrollbar|ThreeDDarkShadow|ThreeDFace|ThreeDHighlight|ThreeDLightShadow|ThreeDShadow|Window|WindowFrame|WindowText";
+	// Color
+	var color = rgb + "|" + rgba + "|" + hsl + "|" + hsla + "|" + hex + "|" + named + "|currentcolor|" + system + "|inherit|initial";
+
+	// Border
+	var borderWidth = "(?:" + calc + "|" + length + ")|thin|medium|thick|inherit|initial";
+	var borderStyle = "none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|inherit|initial";
+	var border = new RegExp("border:\\s*(none|inherit|initial)\\s*;?$|(?:(" + borderWidth + ")|(" + borderStyle + ")|(" + color + "))", "ig");
+
+	if (card.id === "border") {
+		var borderProp = {
+			1: "all",
+			2: "width",
+			3: "style",
+			4: "color"
+		};
+
+		// var layers = card.querySelectorAll(".longhand .layer");
+		var inputs = card.querySelectorAll(".longhand input");
+		var shorthandInput = card.querySelector(".shorthand input");
+		var matches, output = {};
+		while (matches = border.exec(shorthandInput.value)) {
+			for	(var i = 1; i <= matches.length; i++) {
+				if (matches[i]) {
+					output[borderProp[i]] = matches[i];
+				}
+			}
+		}
+		for (var i = 0; i < inputs.length; i++) {
+			if (output.all) {
+				inputs[i].value = output.all;
+			} else {
+				if (typeof output[inputs[i].id.replace("border-", "")] !== "undefined") {
+					inputs[i].value = output[inputs[i].id.replace("border-", "")]
+				}
+			}
+		}
+	}
+}
+
 document.addEventListener("input", function(event) {
 	var card = event.target;
 	while (!card.classList.contains("card")) {
 		card = card.parentElement;
 	}
 	var inputParent = event.target.parentElement;
-	if (!inputParent.classList.contains("shorthand")) {
+	if (inputParent.classList.contains("shorthand")) {
+		convertToLonghand(card);
+	} else {
 		convertToShorthand(card);
 	}
 });
